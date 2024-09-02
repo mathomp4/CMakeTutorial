@@ -6,9 +6,9 @@ project(HelloWorld
   DESCRIPTION "A simple Hello World program using MPI and OpenMP"
 )
 
-find_package(MPI REQUIRED COMPONENTS Fortran)
-
 add_subdirectory(library)
+
+find_package(MPI REQUIRED COMPONENTS Fortran)
 
 add_executable(hello_world main.F90)
 target_link_libraries(hello_world PRIVATE hello_world_lib MPI::MPI_Fortran)

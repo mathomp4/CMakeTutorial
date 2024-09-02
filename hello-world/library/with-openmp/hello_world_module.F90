@@ -13,7 +13,7 @@ module hello_world_mod
          integer :: myid, npes, ierror
          integer :: name_length
 
-         !$ integer :: num_threads, my_thread
+         integer :: num_threads, my_thread
 
          character(len=MPI_MAX_PROCESSOR_NAME) :: processor_name
 
@@ -23,14 +23,13 @@ module hello_world_mod
          call MPI_Comm_Size(comm,npes,ierror)
          call MPI_Get_Processor_Name(processor_name,name_length,ierror)
 
-         !$omp parallel default(shared) private(num_threads, my_thread)
+         !$omp parallel default(none) private(num_threads, my_thread) shared(myid, npes, processor_name)
          num_threads = omp_get_num_threads()
          my_thread   = omp_get_thread_num()
 
          write (*,'(A,I0,A,I0,A,I0,A,I0,A,A)') &
             "Hello from thread ", my_thread, " out of ", num_threads, &
             " on process ", myid, " of ", npes, " on processor ", trim(processor_name)
-
          !$omp end parallel
 
       end subroutine hello_world
