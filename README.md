@@ -1,60 +1,13 @@
 # CMake Tutorial
 
-This is a very basic CMake tutorial code. It builds a simple Fortran MPI Hello World with optional OpenMP support.
+This is a set of basic CMake tutorial code. There are currently two examples
 
-## Prerequisites
+## Basic
 
-- CMake
-- Fortran compiler
-- MPI
-- OpenMP (optional)
+This is a simple Fortran code that calculates matrix multiplication. It is a simple example to show how to use CMake to build a
+Fortran code with three lines of CMake code.
 
-## Running CMake
+## Hello world
 
-### Modern CMake
-
-```bash
-cmake -B build -S . --install-prefix $(pwd)/install
-```
-
-### Old CMake
-
-```bash
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=../install
-```
-
-### OpenMP
-
-By default, OpenMP is enabled. To disable it, add `-DENABLE_OPENMP=OFF` to the CMake command.
-
-## Building
-
-### Modern CMake
-
-```bash
-cmake --build build
-```
-
-### Old-School CMake
-
-```bash
-cd build
-make
-```
-
-## Installing
-
-### Modern CMake
-
-```bash
-cmake --install build
-```
-
-### Old-School CMake
-
-```bash
-cd build
-make install
-```
+This is a more complex example of an MPI Hello World code. It shows how to use CMake to build a code that uses MPI and optionally
+OpenMP. It also uses many of the features of CMake such as finding external libraries, building our own libraries, etc.
