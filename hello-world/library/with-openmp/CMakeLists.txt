@@ -10,3 +10,5 @@ target_link_libraries(hello_world_lib PRIVATE MPI::MPI_Fortran OpenMP::OpenMP_Fo
 
 # We also need to tell CMake where to find the Fortran module files
 target_include_directories(hello_world_lib PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+
+install(TARGETS hello_world_lib)

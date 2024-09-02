@@ -1,4 +1,5 @@
-option(ENABLE_OPENMP "Enable OpenMP support" ON)
+# ENABLE_OPENMP is a boolean option to enable OpenMP support
+# It is set in the main CMakeLists.txt file
 
 if(ENABLE_OPENMP)
   message(STATUS "OpenMP support enabled")

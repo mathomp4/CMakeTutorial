@@ -14,15 +14,15 @@ This is a very basic CMake example which builds a simple Fortran MPI Hello World
 ### Modern CMake
 
 ```bash
-cmake -B build-omp -S . --install-prefix $(pwd)/install-omp
+cmake -B build -S . --install-prefix $(pwd)/install
 ```
 
 ### Old-Style CMake
 
 ```bash
-mkdir build-omp
-cd build-omp
-cmake .. -DCMAKE_INSTALL_PREFIX=../install-omp
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=../install
 ```
 
 ## Building and Installing
@@ -30,22 +30,46 @@ cmake .. -DCMAKE_INSTALL_PREFIX=../install-omp
 ### Modern CMake
 
 ```bash
-cmake --build build-omp
-cmake --install build-omp
+cmake --build build
+cmake --install build
 ```
 
 ### Old-Style CMake
 
 ```bash
-cd build-omp
+cd build
 make
 make install
 ```
 
+## Testing
+
+This example has a CTest which run the executable with 4 processes (and 2 threads per process if OpenMP is enabled).
+
+### Modern CMake (CMake 3.20+)
+
+```bash
+ctest --test-dir build
+```
+
+### Old-Style CMake
+
+```bash
+cd build
+ctest
+```
+
+You can also run `make test` in the build directory.
+
+#### Verbose Testing
+
+To see the output of the tests, you can run the tests in verbose mode by adding `-V` to the `ctest` command. To see output when the
+tests fail, you can add `--output-on-failure`.
+
 ## Running
 
 ```bash
-OMP_NUM_THREADS=2 mpirun -np 4 ./install-omp/bin/hello_world
+OMP_NUM_THREADS=2 mpirun -np 4 ./install/bin/hello_world
 ```
 
 ### Building without OpenMP
@@ -57,6 +81,7 @@ We can use the fact that CMake allows for multiple builds and install directorie
 ```bash
 cmake -B build-noomp -S . --install-prefix $(pwd)/install-noomp -DENABLE_OPENMP=OFF
 cmake --build build-noomp && cmake --install build-noomp
+ctest --test-dir build-noomp
 mpirun -np 4 ./install-noomp/bin/hello_world
 ```
 
