@@ -41,5 +41,5 @@ make
 ## Running
 
 ```bash
-./build/test
+./build/matmul-test
 ```
