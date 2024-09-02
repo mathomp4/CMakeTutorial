@@ -3,7 +3,7 @@ program main
    use mpi_f08
    use hello_world_mod
 
-   implicit none
+   implicit none (type, external)
 
    integer :: ierror
 
