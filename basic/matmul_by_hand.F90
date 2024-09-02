@@ -1,7 +1,5 @@
 module matmul_by_hand_mod
 
-   ! Does a random matrix multiplication
-
    implicit none (type, external)
 
    contains
