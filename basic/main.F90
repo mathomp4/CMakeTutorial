@@ -1,7 +1,6 @@
-program test
+program main
 
-   ! Does a random matrix multiplication
-
+   use matmul_by_hand_mod
    implicit none (type, external)
 
    integer :: a(3,3) = reshape([1,2,3,4,5,6,7,8,9], [3,3])
@@ -10,14 +9,8 @@ program test
    integer :: d(3,3) = 0
    integer :: i, j, k
 
-   ! Explicit matrix multiplication with loops
-   do i = 1, 3
-      do j = 1, 3
-         do k = 1, 3
-            c(i,j) = c(i,j) + a(i,k) * b(k,j)
-         end do
-      end do
-   end do
+   ! Matrix multiplication by hand
+   c = matmul_by_hand(a,b)
 
    ! Matrix multiplication with intrinsic function
    d = matmul(a,b)
@@ -29,4 +22,4 @@ program test
       print *, "Results are different"
    end if
 
-end program test
+end program main
