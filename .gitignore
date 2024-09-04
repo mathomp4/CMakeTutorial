@@ -2,6 +2,10 @@
 build*/
 install*/
 
+# VHS Output
+*.gif
+*.mp4
+
 # Created by https://www.toptal.com/developers/gitignore/api/cmake,fortran
 # Edit at https://www.toptal.com/developers/gitignore?templates=cmake,fortran
 

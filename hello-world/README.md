@@ -2,6 +2,8 @@
 
 This is a very basic CMake example which builds a simple Fortran MPI Hello World with optional OpenMP support.
 
+![Made with VHS](https://vhs.charm.sh/vhs-1M2fSyvr2QZ9NxEF2zVMr1.gif)
+
 ## Prerequisites
 
 - CMake
@@ -84,4 +86,6 @@ cmake --build build-noomp && cmake --install build-noomp
 ctest --test-dir build-noomp
 mpirun -np 4 ./install-noomp/bin/hello_world
 ```
+
+![Made with VHS](https://vhs.charm.sh/vhs-1GUSxBpl2geArLpb4wxZ2s.gif)
 

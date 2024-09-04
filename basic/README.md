@@ -2,6 +2,8 @@
 
 This is a very basic CMake tutorial code. It builds a simple Fortran MPI Hello World with optional OpenMP support.
 
+![Made with VHS](https://vhs.charm.sh/vhs-6kxAsLzaO8lXyt1lxyVC5E.gif)
+
 ## Prerequisites
 
 - CMake
@@ -43,3 +45,4 @@ make
 ```bash
 ./build/matmul-test
 ```
+
