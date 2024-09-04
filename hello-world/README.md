@@ -27,6 +27,21 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=../install
 ```
 
+### Examining the CMake Output
+
+You will notice that CMake was able to detect the Fortran compiler and MPI stack we have loaded. You can also see that it detected
+that we have OpenMP available as well.
+
+### Specifying a Fortran Compiler
+
+By default, CMake will look at the `FC` environment variable to determine the Fortran compiler. If you want to specify a different
+compiler, you can do so either by setting `FC` in the environment or by specifying it on the command line with
+`-DCMAKE_Fortran_COMPILER`.
+
+```bash
+cmake -B build -S . --install-prefix=$(pwd)/install -DCMAKE_Fortran_COMPILER=flang-new
+```
+
 ## Building and Installing
 
 ### Modern CMake

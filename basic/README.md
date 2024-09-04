@@ -25,6 +25,16 @@ cd build
 cmake ..
 ```
 
+### Specifying a Fortran Compiler
+
+By default, CMake will look at the `FC` environment variable to determine the Fortran compiler. If you want to specify a different
+compiler, you can do so either by setting `FC` in the environment or by specifying it on the command line with
+`-DCMAKE_Fortran_COMPILER`.
+
+```bash
+cmake -B build -S . -DCMAKE_Fortran_COMPILER=flang-new
+```
+
 ## Building
 
 ### Modern CMake
